@@ -1,30 +1,16 @@
 import React, { Component } from "react";
 
-import "./Toggle.css";
+import css from "./Toggle.module.css";
 
 class Toggle extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isOn: false
-    };
-  }
-
-  handleClick = () => {
-    this.setState(state => ({
-      isOn: !state.isOn
-    }));
-  };
-
   render() {
-    const { isOn } = this.state;
+    const { isOn, handleClick } = this.props;
     return (
       <div
-        className={`container ${isOn ? "active" : ""}`}
-        onClick={this.handleClick}
+        className={`${css.container} ${isOn ? css.active : ""}`}
+        onClick={handleClick}
       >
-        <div className="switch" />
+        <div className={css.switch} />
       </div>
     );
   }
